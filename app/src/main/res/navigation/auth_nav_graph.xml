@@ -7,9 +7,9 @@
 
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.chatappkotlin.MainActivity"
+        android:name="com.example.chatappkotlin.AuthActivity"
         android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+        tools:layout="@layout/activity_auth" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.chatappkotlin.LoginFragment"

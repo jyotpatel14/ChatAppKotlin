@@ -10,9 +10,12 @@ import android.widget.EditText
 
 class SignupFragment : Fragment() {
 
-    private lateinit var userET :EditText
-    private lateinit var passET :EditText
+    private lateinit var usernameEditText :EditText
+    private lateinit var passwordEditText :EditText
+    private lateinit var displayNameEditText: EditText
     private lateinit var btn : Button
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,11 +31,18 @@ class SignupFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_signup, container, false)
 
-        userET = view.findViewById(R.id.username)
-        passET = view.findViewById(R.id.password)
+        usernameEditText = view.findViewById(R.id.username)
+        passwordEditText = view.findViewById(R.id.password)
+        displayNameEditText = view.findViewById(R.id.displayName)
         btn = view.findViewById(R.id.submit_btn)
 
+        btn.setOnClickListener {
+            val username = usernameEditText.text.toString()
+            val displayName = displayNameEditText.text.toString()
+            val password = passwordEditText.text.toString()
 
+
+        }
 
 
         return view

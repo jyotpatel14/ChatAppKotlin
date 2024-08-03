@@ -8,11 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-
-        >
-
+        android:layout_height="match_parent">
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
@@ -20,9 +16,22 @@
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="30dp"
             android:hint="Enter Username"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <EditText
+            android:id="@+id/displayName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Display Name"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/username"
+
+            />
 
         <EditText
             android:id="@+id/password"
@@ -33,7 +42,7 @@
             android:hint="Enter Password"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/username"
+            app:layout_constraintTop_toBottomOf="@id/displayName"
 
             />
 
@@ -51,4 +60,5 @@
 
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>
