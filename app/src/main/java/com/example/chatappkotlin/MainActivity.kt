@@ -27,14 +27,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val mainView = findViewById<View>(R.id.main)
-        notchBarSetup(mainView)
-        fragmentContainerSetup(savedInstanceState)
 
         val userId = checkUserPreferenceExist()
         if(userId != null){
+            database = FirebaseDatabase.getInstance()
             loadUserChats(userId)
         }
+
+        //all view setup can be done after setting up the "main"
+        val mainView = findViewById<View>(R.id.main_main)
+        notchBarSetup(mainView)
+        fragmentContainerSetup(savedInstanceState)
+
+
+
+
+
 
 
 
@@ -60,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.profile->{
-                    setFragment(SignupFragment())
+                    setFragment(ProfileFragment())
                     return@setOnItemSelectedListener true
                 }
 
@@ -112,7 +120,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun checkUserPreferenceExist():String?{
+    private fun checkUserPreferenceExist(): String? {
         userPreferences = UserPreferences(this)
         if(userPreferences.getUserId() == null){
             val intent = Intent(this@MainActivity, AuthActivity::class.java)
@@ -121,9 +129,8 @@ class MainActivity : AppCompatActivity() {
         }
         else {
             setContentView(R.layout.activity_main)
-            return userPreferences.getUserId()
         }
-        return null
+        return userPreferences.getUserId()
     }
 
     private fun notchBarSetup(mainView : View){

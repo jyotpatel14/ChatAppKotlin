@@ -18,7 +18,7 @@ class AuthActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_auth)
 
-        val mainView = findViewById<View>(R.id.main)
+        val mainView = findViewById<View>(R.id.auth_main)
         notchBarSetup(mainView)
 
         setUpViewPager()
